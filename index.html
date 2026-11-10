@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090a0d">
+  <title>Pulse Fitness | Gym Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#home" aria-label="Pulse Fitness home" data-view="home">
+        <span class="brand-mark"><i class="bi bi-lightning-charge-fill"></i></span>
+        <span class="brand-copy">pulse<span>FITNESS CLUB</span></span>
+      </a>
+
+      <div class="nav-caption">WORKSPACE</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <a class="nav-link" href="#home" data-view="home"><i class="bi bi-house-door-fill"></i><span>Home</span></a>
+        <a class="nav-link active" href="#dashboard" data-view="dashboard"><i class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a>
+        <a class="nav-link" href="#members" data-view="members"><i class="bi bi-people-fill"></i><span>Members</span><span class="nav-count" id="memberNavCount">0</span></a>
+        <a class="nav-link" href="#plans" data-view="plans"><i class="bi bi-award-fill"></i><span>Membership plans</span></a>
+        <a class="nav-link" href="#payments" data-view="payments"><i class="bi bi-credit-card-2-front-fill"></i><span>Payments</span><span class="nav-count" id="pendingNavCount">0</span></a>
+        <a class="nav-link" href="#reports" data-view="reports"><i class="bi bi-file-earmark-bar-graph-fill"></i><span>Reports</span></a>
+        <a class="nav-link" href="#contact" data-view="contact"><i class="bi bi-chat-dots-fill"></i><span>Contact</span></a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-tip">
+          <div class="tip-icon"><i class="bi bi-stars"></i></div>
+          <p>Every rep gets you closer.</p>
+          <span>Make today count.</span>
+        </div>
+        <div class="profile-chip">
+          <div class="profile-avatar">PF</div>
+          <div><strong>Club Admin</strong><span>Administrator</span></div>
+          <i class="bi bi-three-dots"></i>
+        </div>
+      </div>
+    </aside>
+
+    <div class="main-area">
+      <header class="topbar">
+        <button class="icon-button mobile-menu" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
+          <i class="bi bi-list"></i>
+        </button>
+        <div class="breadcrumb-label"><span>Pulse Fitness</span><i class="bi bi-chevron-right"></i><strong id="breadcrumbCurrent">Dashboard</strong></div>
+        <div class="topbar-right">
+          <span class="today-label" id="todayLabel"></span>
+          <div class="topbar-avatar">PF</div>
+        </div>
+      </header>
+
+      <main class="content">
+        <div class="notice" id="appNotice" role="status" aria-live="polite"></div>
+
+        <section class="view-section" id="homeView">
+          <section class="home-hero">
+            <div class="home-hero-copy">
+              <span class="home-kicker"><span></span> BUILT FOR YOUR NEXT LEVEL</span>
+              <h1>Stronger starts<br>with <em>showing up.</em></h1>
+              <p>More than a gym. A community that keeps you moving, growing, and coming back for more.</p>
+              <div class="home-hero-actions">
+                <button class="btn home-cta" data-view-link="plans">Explore membership <i class="bi bi-arrow-up-right"></i></button>
+                <button class="btn home-secondary" data-view-link="contact">Talk to our team</button>
+              </div>
+              <div class="home-trust"><div class="trust-stars">★★★★★</div><span>Good energy. Great people. Real progress.</span></div>
+            </div>
+            <div class="home-hero-visual" aria-hidden="true">
+              <div class="home-visual-ring ring-a"></div><div class="home-visual-ring ring-b"></div>
+              <div class="home-visual-light"></div>
+              <div class="home-tile tile-back"><i class="bi bi-activity"></i><span>MOVE WITH PURPOSE</span></div>
+              <div class="home-tile tile-front"><i class="bi bi-lightning-charge-fill"></i><strong>YOUR<br>PACE.<br>YOUR<br>POWER.</strong></div>
+              <div class="home-visual-caption"><span>01</span> SHOW UP FOR YOU</div>
+            </div>
+            <div class="home-hero-bottom"><span>FIND YOUR STRONG</span><i class="bi bi-arrow-down"></i><span>PULSE FITNESS CLUB</span></div>
+          </section>
+
+          <div class="home-welcome-row">
+            <div><p class="eyebrow">WELCOME TO PULSE</p><h2>A better kind of <span>gym routine.</span></h2></div>
+            <p>Good training starts with the right environment. Find your rhythm, build healthy habits, and make progress that lasts.</p>
+          </div>
+
+          <div class="home-feature-grid">
+            <article class="home-feature-card"><span class="feature-number">01 / TRAIN</span><div class="feature-icon"><i class="bi bi-lightning-charge"></i></div><h3>Move your way</h3><p>Room to move, space to focus, and a fresh start whenever you need one.</p><button class="feature-link" data-view-link="plans">Find your plan <i class="bi bi-arrow-right"></i></button></article>
+            <article class="home-feature-card"><span class="feature-number">02 / BELONG</span><div class="feature-icon"><i class="bi bi-people"></i></div><h3>Find your people</h3><p>Training feels different when you’re part of a community that shows up.</p><button class="feature-link" data-view-link="contact">Meet the team <i class="bi bi-arrow-right"></i></button></article>
+            <article class="home-feature-card"><span class="feature-number">03 / GROW</span><div class="feature-icon"><i class="bi bi-graph-up-arrow"></i></div><h3>Build your rhythm</h3><p>Small wins stack up. Choose a membership that fits your routine and goals.</p><button class="feature-link" data-view-link="plans">See membership options <i class="bi bi-arrow-right"></i></button></article>
+          </div>
+
+          <section class="home-bottom-cta">
+            <div><p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p><h2>Ready when <span>you are.</span></h2></div>
+            <button class="btn home-cta" data-view-link="contact">Get in touch <i class="bi bi-arrow-up-right"></i></button>
+          </section>
+        </section>
+
+        <section class="view-section d-none" id="dashboardView">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">OVERVIEW</p>
+              <h1>Good day, Admin <span class="wave">✦</span></h1>
+              <p class="heading-subtitle">Here’s what’s happening at your club today.</p>
+            </div>
+            <button class="btn btn-primary-custom" data-add-member><i class="bi bi-plus-lg"></i> Add new member</button>
+          </div>
+
+          <section class="dashboard-hero tilt-card" aria-label="Club welcome">
+            <div class="hero-copy">
+              <span class="hero-pill"><span></span> YOUR CLUB, IN MOTION</span>
+              <h2>Make room for<br>your next <em>personal best.</em></h2>
+              <p>Your people are your greatest strength. Keep the energy going and grow your community.</p>
+              <div class="hero-actions">
+                <button class="btn hero-primary" data-add-member><i class="bi bi-plus-lg"></i> Add a member</button>
+                <button class="btn hero-secondary" data-view-link="members">Explore members <i class="bi bi-arrow-up-right"></i></button>
+              </div>
+              <div class="hero-proof"><span class="proof-avatars"><b>O</b><b>E</b><b>S</b></span><span>Growing stronger together</span></div>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+              <div class="hero-glow"></div>
+              <div class="hero-stats-float"><span><i class="bi bi-graph-up-arrow"></i> CLUB PULSE</span><strong id="heroActiveRate">0%</strong><small>active memberships</small></div>
+              <svg class="hero-dumbbell" viewBox="0 0 270 190" role="img">
+                <defs>
+                  <linearGradient id="barGradient" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f8fbff"/><stop offset=".5" stop-color="#bdc9dc"/><stop offset="1" stop-color="#7d8ca5"/></linearGradient>
+                  <linearGradient id="weightGradient" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#a8c7ff"/><stop offset=".45" stop-color="#4f82e8"/><stop offset="1" stop-color="#1b458f"/></linearGradient>
+                </defs>
+                <ellipse cx="136" cy="155" rx="105" ry="17" fill="#07142d" opacity=".45"/>
+                <g transform="translate(137 100) rotate(-29)">
+                  <rect x="-112" y="-8" width="224" height="16" rx="8" fill="url(#barGradient)"/>
+                  <rect x="-104" y="-5" width="208" height="4" rx="2" fill="#fff" opacity=".48"/>
+                  <rect x="-98" y="-36" width="20" height="72" rx="8" fill="#263e6b"/>
+                  <rect x="-91" y="-42" width="39" height="84" rx="11" fill="url(#weightGradient)"/>
+                  <rect x="-87" y="-35" width="7" height="70" rx="4" fill="#c6d9ff" opacity=".48"/>
+                  <rect x="78" y="-42" width="39" height="84" rx="11" fill="url(#weightGradient)"/>
+                  <rect x="111" y="-36" width="20" height="72" rx="8" fill="#263e6b"/>
+                  <rect x="83" y="-35" width="7" height="70" rx="4" fill="#c6d9ff" opacity=".48"/>
+                  <circle cx="-71" cy="-26" r="3" fill="#f3f7ff" opacity=".7"/>
+                  <circle cx="98" cy="-26" r="3" fill="#f3f7ff" opacity=".7"/>
+                </g>
+              </svg>
+              <div class="hero-float-chip"><i class="bi bi-lightning-charge-fill"></i><span>STAY<br>IN MOTION</span></div>
+              <div class="hero-floor"></div>
+            </div>
+          </section>
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <div class="stat-top"><span class="stat-icon icon-blue"><i class="bi bi-people-fill"></i></span><span class="stat-tag">ALL TIME</span></div>
+              <p class="stat-label">Total members</p><div class="stat-value" id="totalMembers">0</div>
+              <div class="stat-foot"><span class="stat-dot blue-dot"></span>Registered at your club</div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top"><span class="stat-icon icon-green"><i class="bi bi-check2-circle"></i></span><span class="stat-tag">CURRENT</span></div>
+              <p class="stat-label">Active members</p><div class="stat-value" id="activeMembers">0</div>
+              <div class="stat-foot"><span class="stat-dot green-dot"></span>Membership in good standing</div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top"><span class="stat-icon icon-amber"><i class="bi bi-clock-history"></i></span><span class="stat-tag">NEEDS ATTENTION</span></div>
+              <p class="stat-label">Expired memberships</p><div class="stat-value" id="expiredMembers">0</div>
+              <div class="stat-foot"><span class="stat-dot amber-dot"></span>Ready for renewal follow-up</div>
+            </article>
+            <article class="stat-card revenue-stat">
+              <div class="stat-top"><span class="stat-icon icon-revenue"><i class="bi bi-cash-stack"></i></span><span class="stat-tag">COLLECTED</span></div>
+              <p class="stat-label">Payments received</p><div class="stat-value" id="totalRevenue">$0</div>
+              <div class="stat-foot"><span class="stat-dot revenue-dot"></span><span id="pendingPaymentsNote">No pending payments</span></div>
+            </article>
+          </div>
+
+          <div class="dashboard-insights">
+            <section class="panel insight-panel activity-panel">
+              <div class="insight-heading">
+                <div><p class="eyebrow">MEMBER GROWTH</p><h2>Joining activity</h2></div>
+                <div class="range-switch" role="group" aria-label="Activity date range">
+                  <button type="button" class="range-button" data-activity-range="7">7D</button>
+                  <button type="button" class="range-button active" data-activity-range="30">30D</button>
+                  <button type="button" class="range-button" data-activity-range="90">90D</button>
+                </div>
+              </div>
+              <div class="activity-summary"><strong id="activityTotal">0</strong><span>members joined in this period</span><span class="chart-live"><i></i> LIVE DATA</span></div>
+              <div class="activity-chart" id="activityChart" role="img" aria-label="Member joining activity chart"></div>
+              <div class="chart-footnote"><i class="bi bi-info-circle"></i> Based on joining dates in your member list</div>
+            </section>
+
+            <section class="panel insight-panel mix-panel">
+              <div class="insight-heading">
+                <div><p class="eyebrow">MEMBERSHIP BREAKDOWN</p><h2>Plan mix</h2></div>
+                <span class="mix-total-label">ALL MEMBERS</span>
+              </div>
+              <div class="mix-content">
+                <div class="mix-chart-wrap"><div class="mix-chart" id="mixChart" role="img" aria-label="Member distribution by membership plan"><div><strong id="mixTotal">0</strong><span>members</span></div></div></div>
+                <div class="mix-legend" id="mixLegend"></div>
+              </div>
+              <p class="mix-hint"><i class="bi bi-hand-index-thumb"></i> Select a plan to view its members</p>
+            </section>
+          </div>
+
+          <section class="panel renewals-panel">
+            <div class="panel-heading renewal-heading">
+              <div><p class="eyebrow">KEEP THE MOMENTUM</p><h2>Upcoming renewals</h2><p class="panel-subtitle">Memberships ending in the next 30 days</p></div>
+              <button class="btn btn-light-custom" data-view-link="members">Manage members <i class="bi bi-arrow-up-right"></i></button>
+            </div>
+            <div class="renewal-list" id="renewalList"></div>
+            <div class="renewals-empty d-none" id="renewalsEmpty"><span class="renewals-empty-icon"><i class="bi bi-check2-circle"></i></span><div><strong>All clear for now</strong><span>No memberships are ending in the next 30 days.</span></div></div>
+          </section>
+
+          <section class="panel recent-panel">
+            <div class="panel-heading">
+              <div><p class="eyebrow">YOUR COMMUNITY</p><h2>Recent members</h2></div>
+              <button class="btn btn-light-custom" data-view-link="members">View all members <i class="bi bi-arrow-up-right"></i></button>
+            </div>
+            <div class="table-responsive">
+              <table class="table member-table">
+                <thead><tr><th>MEMBER</th><th>PLAN</th><th>JOINED</th><th>STATUS</th></tr></thead>
+                <tbody id="recentMembersBody"></tbody>
+              </table>
+            </div>
+            <div class="empty-state d-none" id="recentEmpty"><i class="bi bi-person-plus"></i><strong>No members yet</strong><span>Add your first member to get started.</span></div>
+          </section>
+
+          <div class="dashboard-footer">
+            <div class="quote-mark"><i class="bi bi-quote"></i></div>
+            <div><strong>Small steps every day add up to big results.</strong><span>Keep building a stronger community, one member at a time.</span></div>
+            <i class="bi bi-activity footer-activity"></i>
+          </div>
+        </section>
+
+        <section class="view-section d-none" id="membersView">
+          <div class="page-heading">
+            <div><p class="eyebrow">YOUR COMMUNITY</p><h1>Members</h1><p class="heading-subtitle">Manage your gym members and their memberships.</p></div>
+            <button class="btn btn-primary-custom" data-add-member><i class="bi bi-plus-lg"></i> Add new member</button>
+          </div>
+          <section class="panel members-panel">
+            <div class="panel-heading members-heading">
+              <div><h2>All members <span class="total-pill" id="membersTotalPill">0</span></h2><p class="panel-subtitle">A complete list of your gym members</p></div>
+              <div class="member-tools">
+                <select class="plan-filter" id="memberPlanFilter" aria-label="Filter members by plan"><option value="">All plans</option><option>Monthly</option><option>Quarterly</option><option>Yearly</option></select>
+                <label class="search-box"><i class="bi bi-search"></i><input id="memberSearch" type="search" placeholder="Search name, email or phone..." aria-label="Search members"><kbd>⌘ K</kbd></label>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="table member-table full-member-table">
+                <thead><tr><th>MEMBER</th><th>PHONE</th><th>PLAN</th><th>JOINED</th><th>STATUS</th><th class="text-end">ACTIONS</th></tr></thead>
+                <tbody id="membersTableBody"></tbody>
+              </table>
+            </div>
+            <div class="empty-state d-none" id="membersEmpty"><i class="bi bi-search"></i><strong>No members found</strong><span>Try a different search or add a new member.</span></div>
+          </section>
+        </section>
+
+        <section class="view-section d-none" id="plansView">
+          <div class="page-heading">
+            <div><p class="eyebrow">FLEXIBLE MEMBERSHIPS</p><h1>Membership plans</h1><p class="heading-subtitle">Choose the duration that fits every fitness journey.</p></div>
+            <button class="btn btn-primary-custom" data-add-member><i class="bi bi-plus-lg"></i> Add new member</button>
+          </div>
+          <div class="plans-grid">
+            <article class="plan-card"><div class="plan-symbol plan-blue"><i class="bi bi-calendar2-week"></i></div><p class="eyebrow">GET STARTED</p><h2>Monthly</h2><p class="plan-duration">1 month of training</p><p class="plan-price">$49 <span>/ month</span></p><div class="plan-rule"></div><div class="plan-detail"><i class="bi bi-check-circle-fill"></i> Flexible commitment</div><div class="plan-detail"><i class="bi bi-check-circle-fill"></i> Renews every month</div><button class="btn btn-outline-custom" data-add-member data-plan="Monthly">Enroll a member <i class="bi bi-arrow-right"></i></button></article>
+            <article class="plan-card featured-plan"><span class="popular-label">POPULAR CHOICE</span><div class="plan-symbol plan-purple"><i class="bi bi-calendar3"></i></div><p class="eyebrow">BEST VALUE</p><h2>Quarterly</h2><p class="plan-duration">3 months of training</p><p class="plan-price">$129 <span>/ quarter</span></p><div class="plan-rule"></div><div class="plan-detail"><i class="bi bi-check-circle-fill"></i> Build a lasting routine</div><div class="plan-detail"><i class="bi bi-check-circle-fill"></i> Renews every quarter</div><button class="btn btn-outline-custom" data-add-member data-plan="Quarterly">Enroll a member <i class="bi bi-arrow-right"></i></button></article>
+            <article class="plan-card"><div class="plan-symbol plan-orange"><i class="bi bi-trophy-fill"></i></div><p class="eyebrow">COMMIT TO MORE</p><h2>Yearly</h2><p class="plan-duration">12 months of training</p><p class="plan-price">$449 <span>/ year</span></p><div class="plan-rule"></div><div class="plan-detail"><i class="bi bi-check-circle-fill"></i> Your year, your goals</div><div class="plan-detail"><i class="bi bi-check-circle-fill"></i> Renews annually</div><button class="btn btn-outline-custom" data-add-member data-plan="Yearly">Enroll a member <i class="bi bi-arrow-right"></i></button></article>
+          </div>
+          <p class="plans-note"><i class="bi bi-info-circle"></i> Sample prices are shown in USD. Membership status is calculated automatically from the joining date and selected plan duration.</p>
+        </section>
+
+        <section class="view-section d-none" id="paymentsView">
+          <div class="page-heading">
+            <div><p class="eyebrow">REVENUE & BILLING</p><h1>Payments</h1><p class="heading-subtitle">Record membership payments and keep track of what’s collected.</p></div>
+            <button class="btn btn-primary-custom" id="recordPaymentButton" type="button"><i class="bi bi-plus-lg"></i> Record payment</button>
+          </div>
+          <div class="payment-stats">
+            <article class="payment-stat-card"><span class="payment-stat-icon"><i class="bi bi-wallet2"></i></span><div><span>Total collected</span><strong id="paymentsCollected">$0</strong></div></article>
+            <article class="payment-stat-card"><span class="payment-stat-icon month-icon"><i class="bi bi-calendar-check"></i></span><div><span>Collected this month</span><strong id="paymentsThisMonth">$0</strong></div></article>
+            <article class="payment-stat-card"><span class="payment-stat-icon pending-icon"><i class="bi bi-hourglass-split"></i></span><div><span>Pending payments</span><strong id="paymentsPending">$0</strong></div></article>
+          </div>
+          <section class="panel payments-panel">
+            <div class="panel-heading members-heading">
+              <div><h2>Transaction history <span class="total-pill" id="paymentsCount">0</span></h2><p class="panel-subtitle">Member payments recorded in this browser</p></div>
+              <div class="member-tools payment-tools">
+                <select class="plan-filter" id="paymentStatusFilter" aria-label="Filter by payment status"><option value="">All statuses</option><option value="Paid">Paid</option><option value="Pending">Pending</option></select>
+                <label class="search-box"><i class="bi bi-search"></i><input id="paymentSearch" type="search" placeholder="Search member or payment..." aria-label="Search payments"></label>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="table member-table payments-table">
+                <thead><tr><th>MEMBER</th><th>PLAN</th><th>PAYMENT DATE</th><th>METHOD</th><th>STATUS</th><th class="text-end">AMOUNT</th><th class="text-end">ACTIONS</th></tr></thead>
+                <tbody id="paymentsTableBody"></tbody>
+              </table>
+            </div>
+            <div class="empty-state d-none" id="paymentsEmpty"><i class="bi bi-receipt"></i><strong>No payments found</strong><span>Record a payment or change your filters.</span></div>
+          </section>
+          <p class="payment-disclaimer"><i class="bi bi-shield-lock"></i> This assignment demo records payments locally only. It does not collect card details or process real transactions.</p>
+        </section>
+
+        <section class="view-section d-none" id="reportsView">
+          <div class="page-heading">
+            <div><p class="eyebrow">YOUR CLUB AT A GLANCE</p><h1>Reports</h1><p class="heading-subtitle">Review your membership and payment summary or export the records.</p></div>
+          </div>
+          <div class="report-summary-grid">
+            <article class="report-card"><span><i class="bi bi-people"></i> MEMBERS</span><strong id="reportMemberCount">0</strong><small>Across all membership plans</small></article>
+            <article class="report-card"><span><i class="bi bi-check-circle"></i> ACTIVE MEMBERS</span><strong id="reportActiveCount">0</strong><small>Memberships currently in date</small></article>
+            <article class="report-card"><span><i class="bi bi-cash-stack"></i> REVENUE COLLECTED</span><strong id="reportRevenue">$0</strong><small>Paid transactions only</small></article>
+            <article class="report-card"><span><i class="bi bi-hourglass"></i> PAYMENT FOLLOW-UP</span><strong id="reportPendingCount">0</strong><small>Pending payment records</small></article>
+          </div>
+          <section class="panel report-plans-panel">
+            <div class="panel-heading"><div><p class="eyebrow">MEMBERSHIP MIX</p><h2>Members by plan</h2></div></div>
+            <div id="reportPlanRows" class="report-plan-rows"></div>
+          </section>
+          <section class="panel report-export-panel">
+            <div><span class="report-export-icon"><i class="bi bi-file-earmark-spreadsheet"></i></span><div><h2>Export your records</h2><p>Download a CSV file for a spreadsheet or assignment report.</p></div></div>
+            <div class="report-export-actions"><button class="btn btn-light-custom" id="exportMembersButton"><i class="bi bi-download"></i> Export members</button><button class="btn btn-light-custom" id="exportPaymentsButton"><i class="bi bi-download"></i> Export payments</button></div>
+          </section>
+        </section>
+
+        <section class="view-section d-none" id="contactView">
+          <div class="page-heading contact-page-heading">
+            <div><p class="eyebrow">WE’RE HERE TO HELP</p><h1>Let’s talk.</h1><p class="heading-subtitle">Questions about memberships or getting started? Send us a message.</p></div>
+          </div>
+          <div class="contact-layout">
+            <section class="contact-intro">
+              <span class="contact-orb"><i class="bi bi-chat-heart"></i></span>
+              <p class="eyebrow">GOOD THINGS START WITH A CONVERSATION</p>
+              <h2>Tell us what<br>you’re <em>looking for.</em></h2>
+              <p>Our team can help you find a membership that fits your routine. Leave a message and your email app will open with your note ready to send.</p>
+              <div class="contact-note"><i class="bi bi-envelope-paper"></i><span><strong>Easy to reach us</strong><small>Complete the form and send from your email app.</small></span></div>
+              <div class="contact-note"><i class="bi bi-clock-history"></i><span><strong>Whenever you’re ready</strong><small>Ask about plans, joining, or anything gym-related.</small></span></div>
+            </section>
+            <section class="panel contact-form-panel">
+              <div class="contact-form-heading"><p class="eyebrow">SEND A MESSAGE</p><h2>How can we help?</h2><p>Fill out the form and we’ll prepare an email for you.</p></div>
+              <form id="contactForm" novalidate>
+                <div class="contact-field"><label class="form-label" for="contactName">Your name</label><input class="form-control" id="contactName" name="name" type="text" placeholder="Jordan Lee" required maxlength="80"><div class="invalid-feedback">Please enter your name.</div></div>
+                <div class="contact-field"><label class="form-label" for="contactEmail">Email address</label><input class="form-control" id="contactEmail" name="email" type="email" placeholder="you@example.com" required maxlength="120"><div class="invalid-feedback">Please enter a valid email address.</div></div>
+                <div class="contact-field"><label class="form-label" for="contactTopic">What’s this about?</label><select class="form-select" id="contactTopic" name="topic" required><option value="" selected disabled>Choose a topic</option><option>Membership plans</option><option>Getting started</option><option>General question</option></select><div class="invalid-feedback">Please choose a topic.</div></div>
+                <div class="contact-field"><label class="form-label" for="contactMessage">Your message</label><textarea class="form-control contact-message" id="contactMessage" name="message" rows="4" placeholder="Tell us a little about what you need..." required maxlength="1500"></textarea><div class="invalid-feedback">Please write a short message.</div></div>
+                <button class="btn btn-primary-custom contact-submit" type="submit"><i class="bi bi-send"></i> Prepare email</button>
+                <p class="contact-form-hint"><i class="bi bi-info-circle"></i> The contact address can be configured in <code>assets/js/app.js</code>.</p>
+              </form>
+            </section>
+          </div>
+        </section>
+      </main>
+      <footer class="app-footer">PULSE FITNESS <span>·</span> MEMBER MANAGEMENT</footer>
+    </div>
+  </div>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <div class="modal fade" id="memberModal" tabindex="-1" aria-labelledby="memberModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content member-modal">
+        <form id="memberForm" novalidate>
+          <div class="modal-header">
+            <div><p class="eyebrow">MEMBER DETAILS</p><h2 class="modal-title" id="memberModalTitle">Add new member</h2></div>
+            <button type="button" class="modal-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="memberId">
+            <div class="mb-3"><label class="form-label" for="memberName">Full name</label><div class="input-with-icon"><i class="bi bi-person"></i><input class="form-control" id="memberName" name="name" type="text" placeholder="e.g. Alex Morgan" required maxlength="80"><div class="invalid-feedback">Enter the member's full name.</div></div></div>
+            <div class="mb-3"><label class="form-label" for="memberEmail">Email address</label><div class="input-with-icon"><i class="bi bi-envelope"></i><input class="form-control" id="memberEmail" name="email" type="email" placeholder="alex@example.com" required maxlength="120"><div class="invalid-feedback" id="emailFeedback">Enter a valid email address.</div></div></div>
+            <div class="row g-3">
+              <div class="col-sm-6"><label class="form-label" for="memberPhone">Phone number</label><div class="input-with-icon"><i class="bi bi-telephone"></i><input class="form-control" id="memberPhone" name="phone" type="tel" placeholder="+1 555 123 4567" required maxlength="24" pattern="[+0-9() .-]{7,24}"><div class="invalid-feedback">Enter a valid phone number.</div></div></div>
+              <div class="col-sm-6"><label class="form-label" for="memberPlan">Membership plan</label><select class="form-select" id="memberPlan" name="plan" required><option value="" disabled>Select a plan</option><option>Monthly</option><option>Quarterly</option><option>Yearly</option></select><div class="invalid-feedback">Choose a membership plan.</div></div>
+            </div>
+            <div class="mt-3"><label class="form-label" for="memberJoinDate">Joining date</label><div class="input-with-icon"><i class="bi bi-calendar-event"></i><input class="form-control" id="memberJoinDate" name="joinDate" type="date" required><div class="invalid-feedback">Choose a joining date.</div></div></div>
+            <div class="form-hint"><i class="bi bi-shield-check"></i> Member status is updated automatically based on their plan.</div>
+          </div>
+          <div class="modal-footer"><button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button><button type="submit" class="btn btn-primary-custom"><i class="bi bi-check2"></i> Save member</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content member-modal">
+        <form id="paymentForm" novalidate>
+          <div class="modal-header">
+            <div><p class="eyebrow">PAYMENT DETAILS</p><h2 class="modal-title" id="paymentModalTitle">Record payment</h2></div>
+            <button type="button" class="modal-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+          </div>
+          <div class="modal-body">
+            <div class="payment-form-callout"><i class="bi bi-shield-lock"></i><span>Record a payment or mark it pending. No card details are collected.</span></div>
+            <div class="payment-field"><label class="form-label" for="paymentMember">Member</label><select class="form-select" id="paymentMember" required><option value="" selected disabled>Select a member</option></select><div class="invalid-feedback">Choose a member.</div></div>
+            <div class="row g-3">
+              <div class="col-sm-6 payment-field"><label class="form-label" for="paymentAmount">Amount (USD)</label><div class="input-group payment-amount"><span class="input-group-text">$</span><input class="form-control" id="paymentAmount" type="number" min="0.01" max="999999" step="0.01" placeholder="49.00" required><div class="invalid-feedback">Enter a valid amount.</div></div></div>
+              <div class="col-sm-6 payment-field"><label class="form-label" for="paymentDate">Payment date</label><input class="form-control" id="paymentDate" type="date" required><div class="invalid-feedback">Choose a date.</div></div>
+            </div>
+            <div class="row g-3 mt-0">
+              <div class="col-sm-6 payment-field"><label class="form-label" for="paymentMethod">Payment method</label><select class="form-select" id="paymentMethod" required><option value="" selected disabled>Select method</option><option>Cash</option><option>Card (record only)</option><option>Bank transfer</option><option>Other</option></select><div class="invalid-feedback">Choose a method.</div></div>
+              <div class="col-sm-6 payment-field"><label class="form-label" for="paymentStatus">Payment status</label><select class="form-select" id="paymentStatus" required><option>Paid</option><option>Pending</option></select></div>
+            </div>
+          </div>
+          <div class="modal-footer"><button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button><button type="submit" class="btn btn-primary-custom"><i class="bi bi-check2"></i> Save payment</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
